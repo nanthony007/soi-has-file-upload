@@ -8,6 +8,10 @@ s3 = s3fs.S3FileSystem(anon=True)
 app = FastAPI()
 
 
+@app.get("/")
+async def root():
+    return "go to /docs"
+
 @app.post("/upload/")
 async def upload_file(
     name: Annotated[str, Form()],
